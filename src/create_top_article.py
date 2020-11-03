@@ -71,11 +71,14 @@ class TopArticle:
             jst = timezone(timedelta(hours=+9), 'JST')
             date = datetime(year, month, day, tzinfo=jst).isoformat()
             dateja = str(year) + '年' + str(month) + '月' + str(day) + '日'
+            path = ARTICLE_PATH + i
+            root = self.root
             context = {
                 'date': date,
                 'dateja': dateja,
-                'path': ARTICLE_PATH + i,
-                'title': title
+                'path': path,
+                'title': title,
+                'root': root
             }
             template = string.Template(ARTICLES)
             recent += template.substitute(context)
