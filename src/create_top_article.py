@@ -34,7 +34,7 @@ $recent
             <dl>
                 <dt><a href="$root/feed.xml">Feed</a></dt>
                 <dd>更新情報をRSSで配信しています</dd>
-            </dl?
+            </dl>
         </section>
     </main>
 </body>

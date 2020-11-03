@@ -24,7 +24,7 @@ HTML = '''\
     </header>
     <main>
         <header>
-            <h1>記事一覧</h1>
+            <h2>記事一覧</h2>
         </header>
         <section>
             <ul>
