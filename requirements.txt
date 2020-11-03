@@ -1,0 +1,11 @@
+feedgenerator==1.9.1
+flake8==3.8.4
+importlib-metadata==2.0.0
+Markdown==3.3.3
+mccabe==0.6.1
+pycodestyle==2.6.0
+pyflakes==2.2.0
+python-dotenv==0.15.0
+pytz==2020.4
+six==1.15.0
+zipp==3.4.0
