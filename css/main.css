@@ -1,3 +1,9 @@
+html {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
 body {
     margin: 0 auto;
     max-width: 36rem;
@@ -12,6 +18,7 @@ img {
 }
 
 code {
+    font-family: monospace;
     display: inline-block;
     padding: 0.1rem 0.25rem;
     border-radius: 3px;
@@ -20,6 +27,7 @@ code {
 }
 
 pre code {
+    font-family: monospace;
     margin: 1rem 0;
     padding: 1rem;
     border-radius: 5px;
