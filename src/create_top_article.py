@@ -45,7 +45,7 @@ $recent
 ARTICLES = '''\
 <li>
     <time datetime="$date">$dateja</time>
-    <a href="$path">$title</a>
+    <a href="$root/$path">$title</a>
 </li>
 '''
 
