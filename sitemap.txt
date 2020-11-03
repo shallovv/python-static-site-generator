@@ -1,6 +1,6 @@
-https://shallovv.github.io/python-statis-site-generator/2020-01-06-sample-markdown
-https://shallovv.github.io/python-statis-site-generator/2020-01-05-sample-markdown
-https://shallovv.github.io/python-statis-site-generator/2020-01-04-sample-markdown
-https://shallovv.github.io/python-statis-site-generator/2020-01-03-sample-markdown
-https://shallovv.github.io/python-statis-site-generator/2020-01-02-sample-markdown
-https://shallovv.github.io/python-statis-site-generator/2020-01-01-sample-markdown
+https://shallovv.github.io/python-static-site-generator/2020-01-06-sample-markdown
+https://shallovv.github.io/python-static-site-generator/2020-01-05-sample-markdown
+https://shallovv.github.io/python-static-site-generator/2020-01-04-sample-markdown
+https://shallovv.github.io/python-static-site-generator/2020-01-03-sample-markdown
+https://shallovv.github.io/python-static-site-generator/2020-01-02-sample-markdown
+https://shallovv.github.io/python-static-site-generator/2020-01-01-sample-markdown
