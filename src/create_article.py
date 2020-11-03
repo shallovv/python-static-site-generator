@@ -11,14 +11,14 @@ HTML = '''\
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="$root/css/main.css" rel="stylesheet">
     <link href="$url" rel="canonical">
     <title>$title</title>
 </head>
 <body>
     <header>
-        <a href="/">$sitename</a>
-        <a href="/articles">記事一覧</a>
+        <a href="$root/">$sitename</a>
+        <a href="$root/articles">記事一覧</a>
         <a href="https://www.google.com/search?q=site:$url">検索</a>
     </header>
     <main>
@@ -36,9 +36,10 @@ $contents
 
 
 class Article:
-    def __init__(self, name, url, sitename):
+    def __init__(self, name, url, root, sitename):
         self.name = name
         self.url = url
+        self.root = root
         self.sitename = sitename
 
     def convertHTML(self):
@@ -47,6 +48,7 @@ class Article:
         md = markdown.Markdown(extensions=['meta', 'fenced_code'])
         contents = md.convert(text)
         url = self.url + '/' + ARTICLE_PATH + self.name
+        root = self.root
         sitename = self.sitename
         title = str(md.Meta['title'][0]).replace('"', '')
         year, month, day = map(int, str(md.Meta['date'][0]).split('-'))
@@ -55,6 +57,7 @@ class Article:
         dateja = str(year) + '年' + str(month) + '月' + str(day) + '日'
         context = {
             'url': url,
+            'root': root,
             'sitename': sitename,
             'title': title,
             'date': date,

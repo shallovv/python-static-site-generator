@@ -12,14 +12,14 @@ HTML = '''\
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
+    <link href="$root/css/main.css" rel="stylesheet" type="text/css">
     <link href="$url" rel="canonical">
     <title>$sitename</title>
 </head>
 <body>
     <header>
-        <a href="/">$sitename</a>
-        <a href="/articles">記事一覧</a>
+        <a href="$root/">$sitename</a>
+        <a href="$root/articles">記事一覧</a>
         <a href="https://www.google.com/search?q=site:$url">検索</a>
     </header>
     <main>
@@ -32,7 +32,7 @@ $recent
         <section>
             <h2>リンク</h2>
             <dl>
-                <dt><a href="/feed.xml">Feed</a></dt>
+                <dt><a href="$root/feed.xml">Feed</a></dt>
                 <dd>更新情報をRSSで配信しています</dd>
             </dl?
         </section>
@@ -51,9 +51,10 @@ ARTICLES = '''\
 
 
 class TopArticle:
-    def __init__(self, url, sitename):
+    def __init__(self, url, root, sitename):
         self.name = 'index'
         self.url = url
+        self.root = root
         self.sitename = sitename
 
     def convertHTML(self):
@@ -79,9 +80,11 @@ class TopArticle:
             template = string.Template(ARTICLES)
             recent += template.substitute(context)
         url = self.url
+        root = self.root
         sitename = self.sitename
         context = {
             'url': url,
+            'root': root,
             'sitename': sitename,
             'recent': recent
         }

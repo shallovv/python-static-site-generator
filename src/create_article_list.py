@@ -12,14 +12,14 @@ HTML = '''\
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
+    <link href="$root/css/main.css" rel="stylesheet" type="text/css">
     <link href="$url" rel="canonical">
     <title>記事一覧</title>
 </head>
 <body>
     <header>
-        <a href="/">$sitename</a>
-        <a href="/articles">記事一覧</a>
+        <a href="$root/">$sitename</a>
+        <a href="$root/articles">記事一覧</a>
         <a href="https://www.google.com/search?q=site:$url">検索</a>
     </header>
     <main>
@@ -46,9 +46,10 @@ ARTICLES = '''\
 
 
 class ArticleList:
-    def __init__(self, url, sitename):
+    def __init__(self, url, root, sitename):
         self.name = 'articles'
         self.url = url
+        self.root = root
         self.sitename = sitename
 
     def convertHTML(self):
@@ -74,9 +75,11 @@ class ArticleList:
             template = string.Template(ARTICLES)
             article_list += template.substitute(context)
         url = self.url + '/' + self.name
+        root = self.root
         sitename = self.sitename
         context = {
             'url': url,
+            'root': root,
             'sitename': sitename,
             'article_list': article_list
         }

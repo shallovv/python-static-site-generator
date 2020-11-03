@@ -16,6 +16,7 @@ ARTICLE_PATH = 'articles/'
 STATIC_PATH = 'static/'
 SITENAME = os.environ['SITENAME']
 URL = os.environ['URL']
+ROOT = os.environ['ROOT']
 
 
 # remove output dir
@@ -30,17 +31,17 @@ else:
 os.mkdir(OUTPUT_PATH + ARTICLE_PATH)
 articles = [i.replace(ARTICLE_PATH, '').replace('.md', '') for i in os.listdir(ARTICLE_PATH)]
 for i in articles:
-    article = create_article.Article(i, URL, SITENAME)
+    article = create_article.Article(i, URL, ROOT, SITENAME)
     article.convertHTML()
 
 
 # create top page
-top_article = create_top_article.TopArticle(URL, SITENAME)
+top_article = create_top_article.TopArticle(URL, ROOT, SITENAME)
 top_article.convertHTML()
 
 
 # create article list
-article_list = create_article_list.ArticleList(URL, SITENAME)
+article_list = create_article_list.ArticleList(URL, ROOT, SITENAME)
 article_list.convertHTML()
 
 
