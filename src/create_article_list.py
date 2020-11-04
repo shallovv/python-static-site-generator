@@ -20,7 +20,7 @@ HTML = '''\
     <header>
         <a href="$root/">$sitename</a>
         <a href="$root/articles">記事一覧</a>
-        <a href="https://www.google.com/search?q=site:$url">検索</a>
+        <a href="https://www.google.com/search?q=site:$search_url">検索</a>
     </header>
     <main>
         <header>
@@ -80,11 +80,13 @@ class ArticleList:
         url = self.url + '/' + self.name
         root = self.root
         sitename = self.sitename
+        search_url = self.url
         context = {
             'url': url,
             'root': root,
             'sitename': sitename,
-            'article_list': article_list
+            'article_list': article_list,
+            'search_url': search_url
         }
         template = string.Template(HTML)
         html = template.substitute(context)

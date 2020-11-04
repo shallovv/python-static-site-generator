@@ -19,7 +19,7 @@ HTML = '''\
     <header>
         <a href="$root/">$sitename</a>
         <a href="$root/articles">記事一覧</a>
-        <a href="https://www.google.com/search?q=site:$url">検索</a>
+        <a href="https://www.google.com/search?q=site:$search_url">検索</a>
     </header>
     <main>
         <header>
@@ -55,6 +55,7 @@ class Article:
         jst = timezone(timedelta(hours=+9), 'JST')
         date = datetime(year, month, day, tzinfo=jst).isoformat()
         dateja = str(year) + '年' + str(month) + '月' + str(day) + '日'
+        search_url = self.url
         context = {
             'url': url,
             'root': root,
@@ -62,7 +63,8 @@ class Article:
             'title': title,
             'date': date,
             'dateja': dateja,
-            'contents': contents
+            'contents': contents,
+            'search_url': search_url
         }
         template = string.Template(HTML)
         html = template.substitute(context)

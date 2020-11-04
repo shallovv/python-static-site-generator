@@ -20,7 +20,7 @@ HTML = '''\
     <header>
         <a href="$root/">$sitename</a>
         <a href="$root/articles">記事一覧</a>
-        <a href="https://www.google.com/search?q=site:$url">検索</a>
+        <a href="https://www.google.com/search?q=site:$search_url">検索</a>
     </header>
     <main>
         <section>
@@ -73,12 +73,14 @@ class TopArticle:
             dateja = str(year) + '年' + str(month) + '月' + str(day) + '日'
             path = ARTICLE_PATH + i
             root = self.root
+            search_url = self.url
             context = {
                 'date': date,
                 'dateja': dateja,
                 'path': path,
                 'title': title,
-                'root': root
+                'root': root,
+                'search_url': search_url,
             }
             template = string.Template(ARTICLES)
             recent += template.substitute(context)
@@ -89,7 +91,8 @@ class TopArticle:
             'url': url,
             'root': root,
             'sitename': sitename,
-            'recent': recent
+            'recent': recent,
+            'search_url': search_url
         }
         template = string.Template(HTML)
         html = template.substitute(context)
